@@ -1,22 +1,30 @@
 # Project-01
-This project is based on the familiarization on Docker. In this project the 
+This project is based on the familiarization on Docker and Dockerfile.
 
-## Installation
-
-Use the package manager [pip](https://pip.pypa.io/en/stable/) to install foobar.
+## Cloning the repository:
 
 ```bash
-cd . .
-docker run testimage .
-
+git clone https://github.com/docker/getting-started-app
 ```
-sdkfjlskdjf `sdkfsd`
+-----
 
+Now creating a `Dockerfile` to create an image of the getting started image container. In this `Dockerfile` the following codes are written to run the Image:
 
+- Using node base image of version 18-alpine:
+  
+```dockerfile
+FROM node:18-alpine
+```
+- Using the `/app` as working directory:
+  
+```dockerfile
+WORKDIR /app
+```
+> The WORKDIR instruction sets the working directory for any RUN, CMD, ENTRYPOINT, COPY and ADD instructions that follow it in the Dockerfile.
 
-## Contributing
-
-Pull requests are welcome. For major changes, please open an issue first
-to discuss what you would like to change.
-
-Please make sure to update tests as appropriate.
+- Using `COPY` to copy the files into the Image:
+  
+```dockerfile
+COPY . . 
+```
+>  The first dot means source directory and The second dot means the destination directory
